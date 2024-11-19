@@ -1,0 +1,11 @@
+number,street,city,postal_code,latitude,longitude
+1,Avenue des Champs,Paris,75008,48.8649094,2.3017146
+10,Rue de Rivoli,Paris,75004,48.8554814,2.3604077
+25,Boulevard Haussmann,Paris,75009,48.8728827,2.3326996
+50,Rue La Fayette,Paris,75009,48.8749332,2.3406911
+75,Avenue Victor Hugo,Paris,75016,48.86674069790648,2.2784283252225075
+100,Quai Branly,Paris,75007,48.86209147642012,2.2996077764414937
+33,Rue Cler,Paris,75007,48.8572092,2.3062825
+12,Place de la Bastille,Paris,75011,48.8537119,2.3700992
+8,Rue de Montmartre,Paris,75001,48.87079892320147,2.3469496524090157
+27, Rue du Faubourg Saint-Antoine,Paris,75011,48.8526332,2.3716298
