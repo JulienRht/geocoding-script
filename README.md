@@ -14,7 +14,7 @@ This project is a simple geocoding tool using Python and Nominatim (OpenStreetMa
 Clone this repository:
 
     git clone https://github.com/JulienRht/geocoding-script.git
-    cd your_repository
+    cd geocoding-script
 
 Install dependencies:
 
