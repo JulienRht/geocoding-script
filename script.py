@@ -55,7 +55,7 @@ def geocode_address(address):
 for index, row in df.iterrows():
     print(f"Processing row {index + 1}/{total_rows}")
 
-    # List of address combinations (removed complement column)
+    # List of address combinations (adapt according to your fields here)
     address_combinations = [
         f"{row[FIELD_NUMBER]} {row[FIELD_STREET]}, {row[FIELD_CITY]}",
         f"{row[FIELD_NUMBER]} {row[FIELD_CITY]}, {row[FIELD_POSTAL_CODE]}",
