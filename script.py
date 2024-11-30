@@ -18,6 +18,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 input_file = os.path.join(DATA_DIR, "input_data.xlsx")
 output_file_excel = os.path.join(OUTPUT_DIR, "geocoded_data.xlsx")
 output_file_csv = os.path.join(OUTPUT_DIR, "geocoded_data.csv")
+output_file_geojson = os.path.join(OUTPUT_DIR, "geocoded_data.geojson")
 
 # Load the input Excel file
 df = pd.read_excel(input_file)
@@ -89,4 +90,29 @@ for index, row in df.iterrows():
 df.to_excel(output_file_excel, index=False)
 df.to_csv(output_file_csv, index=False)
 
-print(f"Geocoding completed. Output saved to {output_file_excel} and {output_file_csv}")
+# Create the GeoJSON file
+geojson_features = []
+
+# Iterate through the dataframe to construct GeoJSON features
+for _, row in df.iterrows():
+        feature = {
+            "type": "Feature",  # Each entry is a GeoJSON feature
+            "geometry": {
+                "type": "Point",
+                "coordinates": [float(row['longitude']), float(row['latitude'])]
+            },
+            "properties": row.drop(['latitude', 'longitude']).to_dict()  # Include all other fields as properties
+        }
+        geojson_features.append(feature)
+
+# Build the GeoJSON structure
+geojson_data = {
+    "type": "FeatureCollection",
+    "features": geojson_features
+}
+
+# Write the GeoJSON data to a file
+with open(output_file_geojson, 'w', encoding='utf-8') as f:
+    json.dump(geojson_data, f, ensure_ascii=False)  # Write GeoJSON
+
+print(f"Geocoding completed. Output saved to {output_file_excel}, {output_file_csv}, and {output_file_geojson}")
